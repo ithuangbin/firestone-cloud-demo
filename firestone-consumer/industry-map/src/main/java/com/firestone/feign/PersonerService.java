@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface PersonerService {
 
     @PostMapping(value = "person/detail")
-    ServerResult<Object> getPersonDetail(@RequestParam("str") String id, @RequestParam("areaId") String areaId);
+    ServerResult<Object> getPersonDetail(@RequestParam("id") String id, @RequestParam("areaId") String areaId);
 }

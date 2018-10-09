@@ -11,6 +11,8 @@ import org.elasticsearch.common.Strings;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.NestedQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.data.elasticsearch.core.query.StringQuery;
@@ -27,13 +29,15 @@ import java.util.List;
 @Service
 public class CompanyServiceImpl extends BaseService implements ICompanyService {
 
+    @Autowired
+    private ElasticsearchOperations elasticsearchOperations;
 
     @Override
     public Long getCompanyCount(BaseVo baseVo) {
         BoolQueryBuilder query = queryCompanyAdapter(baseVo);
         SearchQuery sq  =new NativeSearchQueryBuilder().withIndices(ElasticSearchConstants.PROJECT_INFOS).withTypes(ElasticSearchConstants.ES_TYPE).
                 withQuery(query).build();
-        long count = getElasticsearchOperations().count(sq);
+        long count = elasticsearchOperations.count(sq);
         return count;
     }
 
@@ -44,7 +48,7 @@ public class CompanyServiceImpl extends BaseService implements ICompanyService {
         BoolQueryBuilder bool = new BoolQueryBuilder();
         bool.must(QueryBuilders.termQuery("company_id",id)).must(QueryBuilders.termQuery("map_id",areaId));
         StringQuery stringQuery  = new StringQuery(Strings.toString(bool));
-        List<CydnMapProject> cydnMapProjects = getElasticsearchOperations().queryForList(stringQuery, CydnMapProject.class);
+        List<CydnMapProject> cydnMapProjects = elasticsearchOperations.queryForList(stringQuery, CydnMapProject.class);
         CydnMapProject mapProject = new CydnMapProject();
         if (cydnMapProjects != null && cydnMapProjects.size() > 0){
             mapProject = cydnMapProjects.get(0);

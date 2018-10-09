@@ -6,6 +6,8 @@ import com.firestone.service.IPersonerService;
 import org.elasticsearch.common.Strings;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.query.StringQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -20,6 +22,9 @@ import java.util.List;
 @Service
 public class PersonerServiceImpl extends BaseService implements IPersonerService {
 
+    @Autowired
+    private ElasticsearchOperations elasticsearchOperations;
+
     @Override
     public CydnPersonInformationInfos findDetail(String id, String areaId) {
         Assert.notNull(id,"人才id不能为空");
@@ -27,7 +32,7 @@ public class PersonerServiceImpl extends BaseService implements IPersonerService
         BoolQueryBuilder bool = new BoolQueryBuilder();
         bool.must(QueryBuilders.termQuery("name_id",id)).must(QueryBuilders.termQuery("map_id",areaId));
         StringQuery stringQuery  = new StringQuery(Strings.toString(bool));
-        List<CydnPersonInformationInfos> personInformationInfoss = getElasticsearchOperations().queryForList(stringQuery, CydnPersonInformationInfos.class);
+        List<CydnPersonInformationInfos> personInformationInfoss = elasticsearchOperations.queryForList(stringQuery, CydnPersonInformationInfos.class);
         CydnPersonInformationInfos personInformationInfos = new CydnPersonInformationInfos();
         if (personInformationInfoss != null && personInformationInfoss.size() > 0){
             personInformationInfos = personInformationInfoss.get(0);
