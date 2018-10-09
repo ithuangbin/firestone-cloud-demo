@@ -30,4 +30,9 @@ public class DemoApi {
     public ServerResult<Long> count(@RequestBody BaseVo vo){
         return companyervice.getCompanyCount(vo);
     }
+
+    @PostMapping("basic")
+    public ServerResult<Object> basic(@RequestBody BaseVo vo){
+        return companyervice.getBasicInfo(vo.getId(),vo.getAreaId());
+    }
 }

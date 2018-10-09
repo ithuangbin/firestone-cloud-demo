@@ -10,6 +10,7 @@ package com.firestone.api;
 
 
 import com.firestone.model.ServerResult;
+import com.firestone.model.es.CydnMapProject;
 import com.firestone.model.vo.BaseVo;
 import com.firestone.service.CompanyService;
 import io.swagger.annotations.Api;
@@ -30,7 +31,6 @@ public class CompanyServer {
 
     @Autowired
     private CompanyService companyService ;
-
     
     /**
      * 
@@ -47,6 +47,16 @@ public class CompanyServer {
     public ServerResult<Long> getCompanyCount(@RequestBody BaseVo baseVo) throws Exception{
         Long num = companyService.getCompanyCount(baseVo);
         return ServerResult.success(num);
+    }
+
+    @PostMapping("basic")
+    public ServerResult<Object> getCompanyBasicInfo(@RequestParam("id") String id,@RequestParam("areaId") String areaId) throws Exception{
+        try{
+            CydnMapProject project = companyService.getCompanyBasicInfo(id,areaId);
+            return ServerResult.success(project);
+        }catch (Throwable e){
+            return ServerResult.fail(0,e.getMessage());
+        }
     }
 }
 

@@ -1,10 +1,12 @@
 package com.firestone.service.impl;
 
 import com.firestone.model.constants.ElasticSearchConstants;
+import com.firestone.model.es.CydnMapProject;
 import com.firestone.model.vo.BaseVo;
 import com.firestone.service.CompanyService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.lucene.search.join.ScoreMode;
+import org.elasticsearch.common.Strings;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.NestedQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -12,7 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
+import org.springframework.data.elasticsearch.core.query.StringQuery;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import java.util.List;
 
 /**
  * @Auther: huang
@@ -32,6 +38,21 @@ public class CompanyServiceImpl implements CompanyService{
                 withQuery(query).build();
         long count = elasticsearchOperations.count(sq);
         return count;
+    }
+
+    @Override
+    public CydnMapProject getCompanyBasicInfo(String id, String areaId) {
+        Assert.notNull(id,"企业id不能为空");
+        Assert.notNull(areaId,"mapId不能为空");
+        BoolQueryBuilder bool = new BoolQueryBuilder();
+        bool.must(QueryBuilders.termQuery("company_id",id)).must(QueryBuilders.termQuery("map_id",areaId));
+        StringQuery stringQuery  = new StringQuery(Strings.toString(bool));
+        List<CydnMapProject> cydnMapProjects = elasticsearchOperations.queryForList(stringQuery, CydnMapProject.class);
+        CydnMapProject mapProject = new CydnMapProject();
+        if (cydnMapProjects != null && cydnMapProjects.size() > 0){
+            mapProject = cydnMapProjects.get(0);
+        }
+        return mapProject;
     }
 
     public static BoolQueryBuilder queryCompanyAdapter(BaseVo baseVo) {

@@ -1,5 +1,6 @@
 package com.firestone.service;
 
+import com.firestone.model.es.CydnMapProject;
 import com.firestone.model.vo.BaseVo;
 
 /**
@@ -9,4 +10,12 @@ import com.firestone.model.vo.BaseVo;
  */
 public interface CompanyService {
     Long getCompanyCount(BaseVo baseVo);
+
+    /**
+     * 查询企业基本信息
+     * @param id
+     * @param areaId
+     * @return
+     */
+    CydnMapProject getCompanyBasicInfo(String id, String areaId);
 }

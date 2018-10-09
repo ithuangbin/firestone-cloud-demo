@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date: 2018/9/30 10:06
  * @Description:
  */
-@FeignClient(name = "industry-service",fallback = IndustryHystrix.class)
+@FeignClient(name = "personer-service",fallback = IndustryHystrix.class)
 public interface ApiService {
 
     @PostMapping("/sayHello")
