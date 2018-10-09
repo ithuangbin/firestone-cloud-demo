@@ -19,7 +19,7 @@ dev:
 
 spring:
   application:
-    name: industry-service
+    name: personer-service
   profiles:
     active: dev
   boot:

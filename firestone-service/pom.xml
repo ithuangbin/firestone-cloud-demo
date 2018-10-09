@@ -20,7 +20,7 @@
 
     <modules>
         <module>company-service</module>
-        <module>industry-service</module>
+        <module>personer-service</module>
     </modules>
 
     <properties>

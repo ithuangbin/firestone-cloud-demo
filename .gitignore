@@ -3,3 +3,6 @@
 firestone-eureka/target/
 firestone-monitor/target/
 firestone-zipkin/target/
+firestone-consumer/industry-map/target/
+firestone-service/company-service/target/
+firestone-service/personer-service/target/
