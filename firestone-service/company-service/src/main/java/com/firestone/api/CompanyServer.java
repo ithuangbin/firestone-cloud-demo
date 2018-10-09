@@ -9,10 +9,10 @@
 package com.firestone.api;
 
 
-import com.firestone.model.ServerResult;
-import com.firestone.model.es.CydnMapProject;
-import com.firestone.model.vo.BaseVo;
-import com.firestone.service.CompanyService;
+import com.firestone.common.model.ServerResult;
+import com.firestone.common.model.es.CydnMapProject;
+import com.firestone.common.model.vo.BaseVo;
+import com.firestone.service.ICompanyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.*;
 public class CompanyServer {
 
     @Autowired
-    private CompanyService companyService ;
+    private ICompanyService companyService ;
     
     /**
      * 
