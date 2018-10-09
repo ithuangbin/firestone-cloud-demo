@@ -1,0 +1,29 @@
+server:
+  port: ${dev.eureka.server.port}
+
+spring:
+  profiles: dev
+  security:
+    user:
+      name: admin
+      password: ${SECURITY_USER_PASSWORD:admin}
+
+eureka:
+  environment: dev
+  datacenter: linux
+  server:
+    enable-self-preservation: true  # 关闭自我保护
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${dev.eureka.server.port}/eureka/
+    registerWithEureka: false  # 单机模式 设置为false
+    fetchRegistry: false       # 单机模式 设置为false
+  instance:
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+#    prefer-ip-address: true
+    hostname: ${dev.eureka.hostname}    # 指定该Eureka实例的主机名
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+

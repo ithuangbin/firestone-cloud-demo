@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: prod
+  security:
+      user:
+        name: admin
+        password: admin
+
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://${prod1.eureka.hostname}:${prod1.eureka.server.port}/eureka/,http://${prod2.eureka.hostname}:${prod2.eureka.server.port}/eureka/
+        defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${prod.eureka.hostname}:${prod.eureka.server.port}/eureka/

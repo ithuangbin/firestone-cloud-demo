@@ -1,0 +1,46 @@
+# eureka 主机/端口配置 start
+prod:
+  eureka:
+    server:
+      port: 8502
+    hostname: localhost
+test:
+  eureka:
+    server:
+      port: 8501
+    hostname: localhost
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: localhost
+# eureka 主机/端口配置 end
+
+
+spring:
+  application:
+    name: industry-service
+  profiles:
+    active: dev
+  boot:
+    admin:
+      client:
+        url: http://localhost:8515
+  data:
+      elasticsearch:
+        cluster-nodes: 192.168.100.144:9300
+        cluster-name: hsdw-test
+        repositories:
+          enabled: true
+
+server:
+  port: 8518
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

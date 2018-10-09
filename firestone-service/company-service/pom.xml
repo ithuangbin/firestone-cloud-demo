@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.firestone</groupId>
+        <artifactId>firestone-service</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.firestone</groupId>
+    <artifactId>company-service</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <description>企业相关服务</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <mybatis-spring-boot-version>1.3.1</mybatis-spring-boot-version>
+        <mybatis-plus-version>2.1.9</mybatis-plus-version>
+        <fastjson-version>1.2.3</fastjson-version>
+        <elasticsearch-version>6.2.2</elasticsearch-version>
+        <jwt-version>3.2.0</jwt-version>
+        <mybatisplus-spring-boot-starter-version>1.0.5</mybatisplus-spring-boot-starter-version>
+        <shiro-version>1.3.2</shiro-version>
+        <swagger-version>2.8.0</swagger-version>
+        <!--<spring.cloud.version>Finchley.RELEASE</spring.cloud.version>-->
+    </properties>
+
+    <dependencies>
+        <!-- Spring Boot Mybatis 依赖 -->
+        <!--<dependency>-->
+        <!--<groupId>org.mybatis.spring.boot</groupId>-->
+        <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+        <!--<version>${mybatis-spring-boot-version}</version>-->
+        <!--</dependency>-->
+        <!-- MySQL 连接驱动依赖 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+    </dependencies>
+</project>

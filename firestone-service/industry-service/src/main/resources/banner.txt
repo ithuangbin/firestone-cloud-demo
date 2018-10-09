@@ -1,0 +1,67 @@
+${AnsiColor.BRIGHT_YELLOW}
+             .__.__                                       .___      .__                        .__                   .___
+__________ __|__|  |__   ____  __ __          _____     __| _/_____ |__| ____             ____ |  |   ____  __ __  __| _/
+\___   /  |  \  |  |  \ /  _ \|  |  \  ______ \__  \   / __ |/     \|  |/    \   ______ _/ ___\|  |  /  _ \|  |  \/ __ |
+ /    /|  |  /  |   Y  (  <_> )  |  / /_____/  / __ \_/ /_/ |  Y Y  \  |   |  \ /_____/ \  \___|  |_(  <_> )  |  / /_/ |
+/_____ \____/|__|___|  /\____/|____/          (____  /\____ |__|_|  /__|___|  /          \___  >____/\____/|____/\____ |
+      \/             \/                            \/      \/     \/        \/               \/                       \/
+////////////////////////////////////////////////////////////////////
+          .
+                                    ..
+                                    ...
+                                    ..:
+                                    ....
+                                     ..::
+                                     ..::     :
+                                    .. ::    .,
+                                    .. ::   ..:
+                         .         ::..,:  :.,.
+                          ;        :::.:: ...,
+                          .;      :::.,:, ::.,:
+                          .,,    :::::,,::::.,,
+                          ::,:  ,:,::,,,,:::.,,
+                          :.,,:;;,,:,;;,,::::,,
+                          ..,,,;;,,,;;;;,::::,,
+                         :::,,,;;,,i;;;,:::::,,;
+                         :,:,,,;;;i;i;;j,:,,:,,,
+                         :::,,,,itii;;;j,::,:,,,,
+                        ::::,,,,ttii;;jj,::,:,,,,:
+                        ::::,,,,ttii;jtt::::::,,,,
+                       :::::,,,,ttiittit,,,:::,,,,,
+                       ,,,,,,,,,ttttti;it,,::::,,,,
+                      :,,,,,,,,,tt:    :t::,,,:,,,,,
+                      ,,,,,,,,,,j        ,,,,,:,,,,,
+                      ,,,,,,,,,;          :,,,,:,,,;
+                      ;;,,,,,,,,          :,,,,,,,,,.
+                     :;;;;;,,,,           .,,,,,,,,,:
+                     ,;;;;;;;;,            ,,,,,,,,,;
+                     ,i;;;;;;;;            ;,,,,,,,,,
+                     .iiii;;;;;.          ;i,;,,,,,,.
+                      iiiiiii;;;         .ii;;;;;;;,
+                      ttttiiii;;:        tiii;;;;;;;
+                      itttttiiii;,      ijtit;;;;;;;
+                       jjjttttiii;i;::ittiitt;;;;;;.
+                       .jjjjtttiiiiiiittiittt;;;;;;
+                        .fjjjtttiiiiiit;iittj;i;;;,
+                        : fjffjtttitit,iitttji;;ii
+                         : .ffjjtttt,i;itttjjiiii
+                          ,.:.:::,,;;iiittjjjiti
+                           ,,:::,,;;;iittjjjiit
+                            ,,,;;;;;iitttjjftt
+                              ;;;iiiittjtjfj.
+                                ;iittttjjj
+
+
+   iLLLLG  G  ,LLLLG   GLLLLG             LLGL  LLLLLGL   LLLL    L,   LL  GLLLLL
+   GGfLf; .L  LGfffL. jLLLfL;            DLtjGL .LLLGfL  GGLLGL.  GG   GG tGGfff,
+   LL     :L  LL   G. jG.                G;  jf    LL   GG    LG  LLG  LG tL
+   LL     :L  LG.  L. jL                 GLG,.     LL   GG    GL  GLLj LG tG.
+   LLLLG: :L  LLfLL   fLLLLLG             LLGLG    LG   GG    GL  LLLL LL tLLLLLG
+   GL  .  :L  LL.GL.  jL..                   GL.   LG   LL    LL  LL GGGL jG.   .
+   LL     :L  LL ,LL  fG                .L   .G:   LL   GG    GG  LL  GLG tL
+   LL     :L  LL  GL: fLGiii:            LGjiLL    LL    GGjjGL.  LG  fLG jGLiii:
+   LL     :L  LL   LG  GLLLGL             LLGL.    LL     GGLG.   L.   LL  GLLLLL                 //
+////////////////////////////////////////////////////////////////////
+Application Version: ${application.version}${application.formatted-version}
+Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}
+${AnsiColor.DEFAULT}

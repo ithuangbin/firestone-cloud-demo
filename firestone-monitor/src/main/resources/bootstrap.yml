@@ -1,0 +1,35 @@
+# eureka 主机/端口配置 start
+prod:
+  eureka:
+    server:
+      port: 8502
+    hostname: localhost
+test:
+  eureka:
+    server:
+      port: 8501
+    hostname: localhost
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: localhost
+# eureka 主机/端口配置 end
+
+server:
+  port: 8515
+
+spring:
+  application:
+    name: firestone-monitor
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

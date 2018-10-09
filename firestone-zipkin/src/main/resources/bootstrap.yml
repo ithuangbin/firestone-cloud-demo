@@ -1,0 +1,31 @@
+# eureka 主机/端口配置 start
+prod1:
+  eureka:
+    server:
+      port: 8501
+    hostname: localhost
+prod2:
+  eureka:
+    server:
+      port: 8502
+    hostname: localhost
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: localhost
+# eureka 主机/端口配置 end
+
+spring:
+  application:
+    name: firestone-zipkin
+  profiles:
+    active: dev
+
+server:
+  port: 8600
+
+eureka:
+  instance:
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health

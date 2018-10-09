@@ -1,0 +1,31 @@
+prod:
+  eureka:
+    server:
+      port: 8502
+    hostname: localhost
+test:
+  eureka:
+    server:
+      port: 8501
+    hostname: localhost
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: localhost
+
+
+# 公共配置
+spring:
+  profiles:
+    active: dev
+  application:
+    name: firestone-eureka
+
+info:
+  artifact: firestone-eureka
+  name: '@project.name@'
+  description: '@project.description@'
+  version: '@project.version@'
+  spring-boot-version: '@spring.boot.version@'
+  spring-cloud-version: '@spring.cloud.version@'

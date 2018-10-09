@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+  security:
+    user:
+      name: admin
+      password: ${SECURITY_USER_PASSWORD:admin}
+
+eureka:
+  instance:
+    health-check-url-path: /actuator/health
+    prefer-ip-address: true
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+  client:
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${dev.eureka.hostname}:${dev.eureka.server.port}/eureka/
+#      defaultZone: http://${prod1.eureka.hostname}:${prod1.eureka.server.port}/eureka/,http://${prod2.eureka.hostname}:${prod2.eureka.server.port}/eureka/

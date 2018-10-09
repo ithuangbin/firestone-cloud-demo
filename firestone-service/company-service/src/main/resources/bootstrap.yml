@@ -1,0 +1,57 @@
+# eureka 主机/端口配置 start
+prod:
+  eureka:
+    server:
+      port: 8502
+    hostname: localhost
+test:
+  eureka:
+    server:
+      port: 8501
+    hostname: localhost
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: localhost
+# eureka 主机/端口配置 end
+
+
+spring:
+  application:
+    name: company-service
+  profiles:
+    active: dev
+  boot:
+    admin:
+      client:
+        url: http://localhost:8515
+  data:
+    elasticsearch:
+      cluster-nodes: 192.168.100.144:9300
+      cluster-name: hsdw-test
+      repositories:
+        enabled: true
+  datasource:
+    url:  jdbc:mysql://192.168.100.220:3306/industry_map_one?characterEncoding=utf8
+    username: root
+    password: fs2017
+    driver-class-name: com.mysql.jdbc.Driver
+    continue-on-error: true
+  zipkin:
+    base-url: http://localhost:8600
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+server:
+  port: 8516
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

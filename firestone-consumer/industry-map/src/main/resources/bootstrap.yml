@@ -1,0 +1,49 @@
+# eureka 主机/端口配置 start
+prod:
+  eureka:
+    server:
+      port: 8502
+    hostname: localhost
+test:
+  eureka:
+    server:
+      port: 8501
+    hostname: localhost
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: localhost
+# eureka 主机/端口配置 end
+
+
+spring:
+  application:
+    name: industry-map
+  profiles:
+    active: dev
+  zipkin:
+    base-url: http://localhost:8600
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+server:
+  port: 8520
+
+
+#开启hystrix配置
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    connection-timeout: 3000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

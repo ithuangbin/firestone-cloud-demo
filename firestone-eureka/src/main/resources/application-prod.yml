@@ -1,0 +1,26 @@
+server:
+  port: ${prod.eureka.server.port}    # 指定该Eureka实例的端⼝
+
+spring:
+  profiles: prod
+  security:
+      user:
+        name: admin
+        password: ${SECURITY_USER_PASSWORD:admin123}
+
+eureka:
+  environment: prod
+  datacenter: linux
+  server:
+    enable-self-preservation: true  # 关闭自我保护
+  instance:
+    hostname: ${prod.eureka.hostname} # 指定该Eureka实例的主机名
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+#    prefer-ip-address: true  # 这个设置成true后， unavailable-replicas '异常'
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${prod.eureka.hostname}:${prod.eureka.server.port}/eureka/
