@@ -1,2 +1,5 @@
 *.iml
 .idea/
+firestone-eureka/target/
+firestone-monitor/target/
+firestone-zipkin/target/

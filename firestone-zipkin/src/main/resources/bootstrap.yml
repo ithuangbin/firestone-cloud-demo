@@ -21,11 +21,19 @@ spring:
     name: firestone-zipkin
   profiles:
     active: dev
+  boot:
+    admin:
+      client:
+        url: http://localhost:8515
 
 server:
   port: 8600
 
-eureka:
-  instance:
-    statusPageUrlPath: /actuator/info
-    healthCheckUrlPath: /actuator/health
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

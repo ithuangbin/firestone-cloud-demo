@@ -15,10 +15,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @Configurable
 @EnableAutoConfiguration
-public class IndustryApplication {
+public class PersonerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(IndustryApplication.class, args);
+        SpringApplication.run(PersonerApplication.class, args);
     }
 
 }

@@ -7,6 +7,12 @@ spring:
         password: admin
 
 eureka:
+  instance:
+    healthCheckUrlPath: /actuator/health
+    prefer-ip-address: true
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
   client:
     service-url:
       defaultZone: http://${security.user.name}:${security.user.password}@${dev.eureka.hostname}:${dev.eureka.server.port}/eureka/
