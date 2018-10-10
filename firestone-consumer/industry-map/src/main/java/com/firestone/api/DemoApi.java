@@ -1,11 +1,13 @@
 package com.firestone.api;
 
-import com.firestone.feign.PersonerService;
+import com.firestone.common.model.ServerResult;
+import com.firestone.common.model.vo.BaseParam;
 import com.firestone.feign.Companyervice;
-import com.firestone.model.BaseVo;
-import com.firestone.model.ServerResult;
+import com.firestone.feign.PersonerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Auther: huang
@@ -22,18 +24,13 @@ public class DemoApi {
     Companyervice companyervice;
 
 
-    @PostMapping("count")
-    public ServerResult<Long> count(@RequestBody BaseVo vo){
-        return companyervice.getCompanyCount(vo);
-    }
-
     @PostMapping("basic")
-    public ServerResult<Object> basic(@RequestBody BaseVo vo){
-        return companyervice.getBasicInfo(vo.getId(),vo.getAreaId());
+    public ServerResult<Object> basic(@RequestBody BaseParam vo){
+        return companyervice.getBasicInfo(vo);
     }
 
     @PostMapping("person/detail")
-    public ServerResult<Object> detail(@RequestBody BaseVo vo){
+    public ServerResult<Object> detail(@RequestBody BaseParam vo){
         return personerService.getPersonDetail(vo.getId(),vo.getAreaId());
     }
 }

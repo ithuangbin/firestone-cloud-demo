@@ -25,6 +25,12 @@ spring:
     admin:
       client:
         url: http://localhost:8515
+  datasource:
+    url:  jdbc:mysql://localhost:3306/zipkin?characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    continue-on-error: true
 
 server:
   port: 8600
@@ -37,3 +43,11 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+  metrics:
+    web:
+      server:
+        auto-time-requests: false  #去除控制台异常
+
+zipkin:
+  storage:
+    type: mysql

@@ -2,9 +2,9 @@ spring:
   profiles:
     active: dev
   security:
-      user:
-        name: admin
-        password: admin
+    user:
+      name: admin
+      password: admin
 
 eureka:
   instance:
@@ -15,6 +15,6 @@ eureka:
       user.password: ${spring.security.user.password}
   client:
     service-url:
-      defaultZone: http://${security.user.name}:${security.user.password}@${dev.eureka.hostname}:${dev.eureka.server.port}/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${dev.eureka.hostname}:${dev.eureka.server.port}/eureka/
 #      defaultZone: http://${prod1.eureka.hostname}:${prod1.eureka.server.port}/eureka/,http://${prod2.eureka.hostname}:${prod2.eureka.server.port}/eureka/
 

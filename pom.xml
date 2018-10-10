@@ -24,6 +24,7 @@
     </licenses>
 
     <modules>
+        <module>firestone-common</module>
         <module>firestone-eureka</module>
         <module>firestone-monitor</module>
 		<module>firestone-zipkin</module>

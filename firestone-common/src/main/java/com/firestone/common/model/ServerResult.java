@@ -67,5 +67,12 @@ public class ServerResult<T> {
         result.setMsg(resultEnum.getMsg());
         return result;
     }
+
+    public static ServerResult<Object> timeout(){
+        ServerResult<Object> result = new ServerResult<Object>();
+        result.setCode(00);
+        result.setMsg("服务超时");
+        return result;
+    }
 }
 

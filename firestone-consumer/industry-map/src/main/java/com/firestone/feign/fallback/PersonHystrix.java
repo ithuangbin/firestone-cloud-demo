@@ -1,7 +1,7 @@
 package com.firestone.feign.fallback;
 
+import com.firestone.common.model.ServerResult;
 import com.firestone.feign.PersonerService;
-import com.firestone.model.ServerResult;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 

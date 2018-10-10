@@ -39,10 +39,13 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     continue-on-error: true
   zipkin:
-    base-url: http://localhost:8600
+    base-url: http://localhost:9411/
   sleuth:
     sampler:
       percentage: 1.0
+    web:
+      client:
+        enabled: true
 
 server:
   port: 8516
@@ -55,3 +58,6 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+  health:
+    defaults:
+      enabled: false
